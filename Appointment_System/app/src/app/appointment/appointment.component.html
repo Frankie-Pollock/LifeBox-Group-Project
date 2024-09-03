@@ -1,0 +1,24 @@
+<mat-toolbar *ngIf="successMessage" color="green">{{ successMessage }}</mat-toolbar>
+<mat-toolbar *ngIf="errorMessage" color="red">{{ errorMessage }}</mat-toolbar>
+
+<div class="form-container">
+    <form (submit)="createAppointment()">
+        <mat-form-field>
+            <input [(ngModel)]="appointmentDate" name="appointmentDate" matInput [matDatepicker]="picker" placeholder="Choose a date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker>
+        </mat-datepicker>
+            <input [(ngModel)]="firstName" name="firstName" matInput placeholder="First Name">
+        </mat-form-field>
+        <mat-form-field>
+            <input [(ngModel)]="lastName" name="lastName" matInput placeholder="Last Name">
+        </mat-form-field>
+        <mat-form-field>
+            <input [(ngModel)]="email" name="email" matInput placeholder="Email address">   
+        </mat-form-field>
+        <mat-form-field>
+            <input [(ngModel)]="phoneNumber" name="phoneNumber" matInput placeholder="Phone Number">
+        </mat-form-field>
+        <button mat-raised-button color="primary">Make Appointment</button>
+    </form>
+</div>
